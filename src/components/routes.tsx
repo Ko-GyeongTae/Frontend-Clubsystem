@@ -1,33 +1,25 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AuthHome from "../pages/AuthHome";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AuthHome from "../pages/Auth/Home";
 import Home from "../pages/Home";
+import UserLogin from "../pages/Auth/UserLogin";
+import CheckToken from "./checkToken";
+import AdminLogin from "../pages/Auth/AdminLogin";
 
-function AuthRouter(props: any) {
+function Router() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<AuthHome />} />
-                <Route path="/signin" element={<AuthHome />} />
-                <Route path="/signup" element={<AuthHome />} />
-            </Routes>
-        </BrowserRouter>
-    );
-}
-
-function MainRouter() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/home" element={<Home/>}/>
-            </Routes>
-        </BrowserRouter>
+        <>
+            <Switch>
+                <Route exact path="/" component={AuthHome} />
+                <Route path="/signin/admin" component={AdminLogin} />
+                <Route path="/signin/user" component={UserLogin} />
+                <Route path="/signup" component={AuthHome} />
+                <CheckToken>
+                    <Route path="/user/home" component={Home} />
+                </CheckToken>
+            </Switch>
+        </>
     )
-}
 
-function Router(props: any) {
-    if(props.isLogin) return <MainRouter/>
-    else return <AuthRouter callback={props.callback}/>
 }
 
 
