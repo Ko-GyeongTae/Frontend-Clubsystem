@@ -16,7 +16,6 @@ function AdminLogin() {
             "password": pw
         })
             .then(res => {
-                console.log(res.data["accessToken"]);
                 setAccessToken(res.data["accessToken"]);
                 push("/");
             })
