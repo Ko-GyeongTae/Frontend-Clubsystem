@@ -1,19 +1,14 @@
-import React from 'react';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './components/routes';
+import { getAccessToken } from './utils';
 
 function App() {
+  let isLoggedIn = getAccessToken();
   return (
-    <main className="App">
-      <div className="header">
-        <h1>동아리 관리시스템</h1>
-        <p>Made by 맛소금</p>
-      </div>
-
-      <div>
-        
-      </div>
-    </main>
-  );
+    <BrowserRouter>
+      <Router isLoggedIn={isLoggedIn}/>
+    </BrowserRouter>
+  )
 }
 
 export default App;
