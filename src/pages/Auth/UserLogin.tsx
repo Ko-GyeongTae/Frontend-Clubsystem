@@ -1,20 +1,18 @@
 import { useEffect } from "react";
 import axios from "axios";
 
-function LoginPage(props: any){
-    
+function UserLogin(){
     function joinHandler(){
         try{
-            let data = {email: "devracoon@naver.com"};
-            axios.post("/auth/login" ,JSON.stringify(data), {
+            let data = {id: "test", password: "test"};
+            axios.post("http://localhost:4000/auth/signin" ,JSON.stringify(data), {
                 headers: {
                   "Content-Type": `application/json`,
                 }})
             .then(res =>{
-                console.log("res.data.accessToken : " + res.data);
+                console.log("res.data.accessToken : " + res.data["accessToken"]);
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data;
-                props.loginCallBack(true);
-                props.history.push("/");
+         
             })
             .catch(ex=>{
                 console.log("login requset fail : " + ex);
@@ -39,4 +37,4 @@ function LoginPage(props: any){
     )
 }
 
-export default LoginPage;
+export default UserLogin;

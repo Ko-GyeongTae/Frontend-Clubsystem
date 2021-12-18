@@ -1,4 +1,4 @@
-import './AuthHome.css';
+import './Home.css';
 
 function AuthHome() {
 
@@ -10,15 +10,19 @@ function AuthHome() {
             </div>
 
             <div className="grid">
-                <a className="signup-box" href="/signup">
+                <a className="sign-box" href="/signin/admin">
                     <h1>동아리장으로 입장하기</h1>
                     <p>동아리장으로 입장 동아리를 관리하기</p>
                 </a>
-                <a className="signup-box" href="/signup">
+                <a className="sign-box" href="/signin/user">
                     <h1>동아리원으로 입장하기</h1>
                     <p>동아리원으로 입장하여 동아리에 기여하기</p>
                 </a>
+                <a className="sign-box" href="signup">
+                    <p>계정이 없으신가요?</p>
+                </a>
             </div>
+
         </main>
     );
 }
