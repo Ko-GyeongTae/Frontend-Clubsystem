@@ -19,21 +19,20 @@ function AdminLogin() {
         setPw(e.target.value);
     }
 
-    const Login = async () => { // login function
-        console.log("window");
+    const Login = async (e: any) => { // login function
+        e.preventDefault();
         await axios.post(baseURL + "/auth/signin/admin", { // Request to login api with axios module
             "id": id,
             "password": pw
         })
             .then(res => {
-                console.log("window");
                 console.log(res.data["accessToken"])
                 setAccessToken(res.data["accessToken"]);
                 localStorage.setItem("accessToken", res.data["accessToken"]);
                 push("/");
+                window.location.reload();
             })
             .catch(err => {
-                console.log("window");
                 console.log(err); // If you fail to login, Browser print error log.
                 alert("Wrong Authentication");
             })
@@ -47,8 +46,8 @@ function AdminLogin() {
                 <div className="form-box">
                     <input type="text" name="id" placeholder="ID" value={id} onChange={handleId} />
                     <input type="password" name="password" placeholder="Password" value={pw} onChange={handlePw} />
+                    <button type="submit" value="Submit">Login</button>
                 </div>
-                <button type="submit" value="Submit">Login</button>
             </form>
         </div>
     )
