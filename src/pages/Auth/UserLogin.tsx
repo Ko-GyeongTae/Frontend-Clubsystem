@@ -4,8 +4,6 @@ import { setAccessToken } from '../../utils';
 import { useHistory } from 'react-router-dom';
 import './Login.css';
 
-const baseURL = 'http://localhost:4000';
-
 function AdminLogin() {
     const [id, setId] = useState<string>(); // id State variable
     const [pw, setPw] = useState<string>(); // password State variable
@@ -21,7 +19,7 @@ function AdminLogin() {
 
     const Login = async (e: any) => { // login function
         e.preventDefault();
-        await axios.post(baseURL + "/auth/signin/user", { // Request to login api with axios module
+        await axios.post(process.env.REACT_APP_BASEURL + "/auth/signin/user", { // Request to login api with axios module
             "id": id,
             "password": pw
         })

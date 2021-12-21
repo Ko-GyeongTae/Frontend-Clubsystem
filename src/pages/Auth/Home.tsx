@@ -1,7 +1,6 @@
 import './Home.css';
 
 function AuthHome() {
-
     return (
         <main className="App">
             <div className="header">
