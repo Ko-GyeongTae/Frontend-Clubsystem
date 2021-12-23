@@ -42,8 +42,8 @@ function AdminLogin() {
             </div>
             <form className="input-form" onSubmit={Login}>
                 <div className="form-box">
-                    <input type="text" name="id" placeholder="ID" value={id} onChange={handleId} />
-                    <input type="password" name="password" placeholder="Password" value={pw} onChange={handlePw} />
+                    <input type="text" name="id" placeholder="아이디" value={id} onChange={handleId} />
+                    <input type="password" name="password" placeholder="비밀번호" value={pw} onChange={handlePw} />
                     <button type="submit" value="Submit">Login</button>
                 </div>
             </form>

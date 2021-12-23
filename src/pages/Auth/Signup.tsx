@@ -9,7 +9,6 @@ function Signup() {
     const [studentno, setStudentno] = useState<string>();
     const [name, setName] = useState<string>();
     const [pw, setPw] = useState<string>();
-    const [cpw, setCpw] = useState<string>();
     const [club, setClub] = useState<string>();
 
     const { push } = useHistory();
@@ -28,10 +27,6 @@ function Signup() {
 
     const handlePw = (e: any) => {
         setPw(e.target.value);
-    }
-
-    const handleCpw = (e: any) => {
-        setCpw(e.target.value);
     }
 
     const handleClub = (e: any) => {
@@ -63,9 +58,8 @@ function Signup() {
                     <input type="text" name="studNo" placeholder="학번" value={studentno} onChange={handleStudentno} />
                     <input type="text" name="name" placeholder="이름" value={name} onChange={handleName} />
                     <input type="password" name="password" placeholder="비밀번호" value={pw} onChange={handlePw} />
-                    <input type="password" name="confirmpassword" placeholder="비밀번호 확인" value={cpw} onChange={handleCpw} />
                     <input type="text" name="club" placeholder="동아리명" value={club} onChange={handleClub} />
-                    <button type="submit" value="Submit">Login</button>
+                    <button type="submit" value="Submit">Signup</button>
                 </div>
             </form>
         </div>
