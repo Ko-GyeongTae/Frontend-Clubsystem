@@ -1,14 +1,12 @@
 import './Home.css';
 
 function AuthHome() {
-
     return (
         <main className="App">
             <div className="header">
                 <h1>동아리 관리시스템</h1>
                 <p>Made by 맛소금</p>
             </div>
-
             <div className="grid">
                 <a className="sign-box" href="/signin/admin">
                     <h1>동아리장으로 입장하기</h1>
@@ -22,6 +20,7 @@ function AuthHome() {
                     <p>계정이 없으신가요?</p>
                 </a>
             </div>
+            
 
         </main>
     );
